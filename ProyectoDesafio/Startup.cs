@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProyectoDesafio.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProyectoDesafio
 {
@@ -24,6 +26,11 @@ namespace ProyectoDesafio
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<AnimeContext>(options =>
+                                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+            //services.addda();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

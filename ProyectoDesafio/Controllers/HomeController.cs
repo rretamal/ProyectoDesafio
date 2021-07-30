@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ProyectoDesafio.Data;
 using ProyectoDesafio.Models;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,20 @@ namespace ProyectoDesafio.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AnimeContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(AnimeContext context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            var top3Animes = _context.Animes.Where(c => c.ImgUrl != null).OrderByDescending(c => c.Rating).Take(3).ToList();
+
+
+
             return View();
         }
 
