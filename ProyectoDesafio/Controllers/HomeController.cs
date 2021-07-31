@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using ProyectoDesafio.Data;
 using ProyectoDesafio.Models;
+using ProyectoDesafio.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,9 +24,44 @@ namespace ProyectoDesafio.Controllers
 
         public IActionResult Index()
         {
-            var top3Animes = _context.Animes.Where(c => c.ImgUrl != null).OrderByDescending(c => c.Rating).Take(3).ToList();
+            var viewModel = new MainViewModel();
 
+            var top6Animes = _context.Animes.Where(c => c.ImgUrl != null).OrderByDescending(c => c.Rating).Take(6).ToList();
 
+            viewModel.Top3 = top6Animes.ToArray();
+
+            // Populares
+            var top10Animes = _context.Animes.Where(c => c.ImgUrl != null).OrderByDescending(c => c.Rating).Take(10).ToList();
+            viewModel.TopAnimes = top10Animes.ToArray();
+
+            // Mangas Poulares
+            var tvType = _context.AnimesTypes.Where(c => c.TypeName.ToLower() == "tv").FirstOrDefault();
+
+            if (tvType != null)
+            {
+                var topMangas = _context.Animes.Where(c => c.ImgUrl != null && c.TypeId == tvType.TypeId).OrderByDescending(c => c.Rating).Take(3).ToList();
+                viewModel.TopMangas = topMangas.ToArray();
+
+                var random = new Random();
+
+                var topListAnimes = _context.Animes.Where(c => c.ImgUrl != null && c.TypeId == tvType.TypeId).OrderByDescending(c => c.Rating).Take(200).ToList();
+                int index = random.Next(topListAnimes.Count);
+                var dayAnime = topListAnimes[index];
+
+                viewModel.DayAnime = dayAnime;
+            }
+
+            // Peliculas populares
+            var movieType = _context.AnimesTypes.Where(c => c.TypeName.ToLower() == "movie").FirstOrDefault();
+
+            if (movieType != null)
+            {
+                var topMovies = _context.Animes.Where(c => c.ImgUrl != null && c.TypeId == tvType.TypeId).OrderByDescending(c => c.Rating).Take(3).ToList();
+
+                viewModel.TopMovies = topMovies.ToArray();
+            }
+
+            // Anime del día
 
             return View();
         }
