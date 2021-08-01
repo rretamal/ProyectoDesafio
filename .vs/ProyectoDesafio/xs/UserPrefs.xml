@@ -3,9 +3,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="ProyectoDesafio/Views/Home/Index.cshtml">
     <Files>
       <File FileName="ProyectoDesafio/Views/Shared/_Layout.cshtml" Line="29" Column="59" />
-      <File FileName="ProyectoDesafio/Views/Home/Index.cshtml" Line="388" Column="61" />
-      <File FileName="ProyectoDesafio/Controllers/HomeController.cs" Line="50" Column="1" />
-      <File FileName="ProyectoDesafio/wwwroot/css/site.css" Line="195" Column="22" />
+      <File FileName="ProyectoDesafio/Views/Home/Index.cshtml" Line="317" Column="69" />
+      <File FileName="ProyectoDesafio/Controllers/HomeController.cs" />
+      <File FileName="ProyectoDesafio/wwwroot/css/site.css" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,11 +17,6 @@
                 <Node name="Home" expanded="True">
                   <Node name="Index.cshtml" selected="True" />
                 </Node>
-                <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-                <Node name="img" expanded="True" />
               </Node>
             </Node>
           </Node>
