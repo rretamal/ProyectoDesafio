@@ -89,3 +89,108 @@ body {
 .mt-200 {
     margin-top: 200px
 }
+
+.surveyImg {
+    height:200px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+    .rating > input {
+        display: none
+    }
+
+    .rating > label {
+        position: relative;
+        width: 1em;
+        font-size: 4vw;
+        color: #FFD600;
+        cursor: pointer
+    }
+
+        .rating > label::before {
+            content: "\2605";
+            position: absolute;
+            opacity: 0
+        }
+
+        .rating > label:hover:before,
+        .rating > label:hover ~ label:before {
+            opacity: 1 !important
+        }
+
+    .rating > input:checked ~ label:before {
+        opacity: 1
+    }
+
+    .rating:hover > input:checked ~ label:before {
+        opacity: 0.4
+    }
+
+h1,
+p {
+    text-align: center
+}
+
+h1 {
+    margin-top: 150px
+}
+
+p {
+    font-size: 1.2rem
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 14px
+    }
+
+    p {
+        font-size: 12px
+    }
+}
+
+.staticSpinner {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    overflow: auto;
+    z-index: 1000;
+}
+
+    .staticSpinner img {
+        height:70px;
+    }
+
+.staticWarning {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    overflow: auto;
+    z-index: 1000;
+    background-image: url('/img/niceBackground.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 140px;
+    text-align: center;
+}
+
+    .staticWarning a {
+        margin-top: 34px;
+        padding-top: 40px;
+        display: table-cell;
+        vertical-align: middle;
+        color: white;
+        font-style: italic;
+    }
+
+.carousel-caption {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+}

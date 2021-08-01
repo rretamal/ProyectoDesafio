@@ -15,6 +15,7 @@ namespace ProyectoDesafio.Data
         public DbSet<Genre> Genres { get; set; }
         public DbSet<AnimeType> AnimesTypes { get; set; }
         public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Rating> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +24,7 @@ namespace ProyectoDesafio.Data
             modelBuilder.Entity<AnimeType>().ToTable("anime_type");
             modelBuilder.Entity<Genre>().ToTable("genre");
             modelBuilder.Entity<Rating>().ToTable("rating");
+            modelBuilder.Entity<User>().ToTable("users");
         }
     }
 }

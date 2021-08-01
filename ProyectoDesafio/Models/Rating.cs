@@ -16,6 +16,6 @@ namespace ProyectoDesafio.Models
         public int AnimeId { get; set; }
 
         [Column("rating")]
-        public int RatingVal { get; set; }
+        public float RatingVal { get; set; }
     }
 }

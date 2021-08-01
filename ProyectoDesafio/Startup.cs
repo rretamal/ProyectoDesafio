@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ProyectoDesafio.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace ProyectoDesafio
 {
@@ -30,6 +31,7 @@ namespace ProyectoDesafio
             services.AddDbContext<AnimeContext>(options =>
                                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
             //services.addda();
         }
 

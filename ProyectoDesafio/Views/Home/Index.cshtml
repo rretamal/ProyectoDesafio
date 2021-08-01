@@ -1,7 +1,25 @@
-﻿@{
+﻿@model ProyectoDesafio.ViewModels.MainViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
+@section PopularCarousel{
+    @foreach (var item in Model.TopAnimes)
+    {
+        <!-- Media Block -->
+        <div class="media-block featured">
+            <!-- Poster  -->
+            <a href="anime-stream.html" class="image ti-play" data-src="@item.ImgUrl"></a>
+            <!-- Info -->
+            <div class="info">
+                <a href="anime-details.html"><h3>@item.AnimeName</h3></a>
+                <a href="anime-stream.html"><h4>episode : 05</h4></a>
+            </div>
+            <!-- Rating -->
+            <a href="#" class="rating"><span>Rating</span> @item.Rating.ToString()</a>
+        </div>
+    }
+}
 <div class="media-section">
     <div class="container">
         <!-- Controls -->
@@ -13,7 +31,7 @@
             <div class="tns-controls" aria-label="Carousel Navigation" tabindex="0"><button type="button" data-controls="prev" tabindex="-1" aria-controls="tns2"></button><button type="button" data-controls="next" tabindex="-1" aria-controls="tns2"></button></div><div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span class="current">15 to 18</span>  of 6</div><div id="tns2-mw" class="tns-ovh">
                 <div class="tns-inner" id="tns2-iw">
                     <div class="media-carousel row  tns-slider tns-carousel tns-subpixel tns-no-calc tns-horizontal" id="tns2" style="transform: translate3d(-70%, 0px, 0px);">
-                        <div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        <div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-2.png" style="background-image: url(&quot;img/image-2.png&quot;);"></a>
                             <!-- Info -->
@@ -23,7 +41,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-5.png" style="background-image: url(&quot;img/image-5.png&quot;);"></a>
                             <!-- Info -->
@@ -33,7 +51,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-6.png" style="background-image: url(&quot;img/image-6.png&quot;);"></a>
                             <!-- Info -->
@@ -43,7 +61,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-7.png" style="background-image: url(&quot;img/image-7.png&quot;);"></a>
                             <!-- Info -->
@@ -53,7 +71,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-8.png" style="background-image: url(&quot;img/image-8.png&quot;);"></a>
                             <!-- Info -->
@@ -63,7 +81,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-1.png" style="background-image: url(&quot;img/image-1.png&quot;);"></a>
                             <!-- Info -->
@@ -73,7 +91,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-2.png" style="background-image: url(&quot;img/image-2.png&quot;);"></a>
                             <!-- Info -->
@@ -85,7 +103,7 @@
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
                         </div>
                         <!-- Media Block -->
-                        <div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item" id="tns2-item0" aria-hidden="true" tabindex="-1">
+                        <div class="slide-item  col-m-6 col-l-3 media-block tns-item" id="tns2-item0" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-5.png" style="background-image: url(&quot;img/image-5.png&quot;);"></a>
                             <!-- Info -->
@@ -97,7 +115,7 @@
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
                         </div>
                         <!-- Media Block -->
-                        <div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item" id="tns2-item1" aria-hidden="true" tabindex="-1">
+                        <div class="slide-item  col-m-6 col-l-3 media-block tns-item" id="tns2-item1" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-6.png" style="background-image: url(&quot;img/image-6.png&quot;);"></a>
                             <!-- Info -->
@@ -109,7 +127,7 @@
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
                         </div>
                         <!-- Media Block -->
-                        <div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item" id="tns2-item2" aria-hidden="true" tabindex="-1">
+                        <div class="slide-item  col-m-6 col-l-3 media-block tns-item" id="tns2-item2" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-7.png" style="background-image: url(&quot;img/image-7.png&quot;);"></a>
                             <!-- Info -->
@@ -121,7 +139,7 @@
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
                         </div>
                         <!-- Media Block -->
-                        <div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item" id="tns2-item3" aria-hidden="true" tabindex="-1">
+                        <div class="slide-item  col-m-6 col-l-3 media-block tns-item" id="tns2-item3" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-8.png" style="background-image: url(&quot;img/image-8.png&quot;);"></a>
                             <!-- Info -->
@@ -133,7 +151,7 @@
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
                         </div>
                         <!-- Media Block -->
-                        <div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item" id="tns2-item4" aria-hidden="true" tabindex="-1">
+                        <div class="slide-item  col-m-6 col-l-3 media-block tns-item" id="tns2-item4" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-1.png" style="background-image: url(&quot;img/image-1.png&quot;);"></a>
                             <!-- Info -->
@@ -145,7 +163,7 @@
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
                         </div>
                         <!-- Media Block -->
-                        <div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item" id="tns2-item5" aria-hidden="true" tabindex="-1">
+                        <div class="slide-item  col-m-6 col-l-3 media-block tns-item" id="tns2-item5" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-2.png" style="background-image: url(&quot;img/image-2.png&quot;);"></a>
                             <!-- Info -->
@@ -156,7 +174,7 @@
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
                         </div>
-                        <div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        <div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-5.png" style="background-image: url(&quot;img/image-5.png&quot;);"></a>
                             <!-- Info -->
@@ -166,7 +184,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned tns-slide-active">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned tns-slide-active">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-6.png" style="background-image: url(&quot;img/image-6.png&quot;);"></a>
                             <!-- Info -->
@@ -176,7 +194,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned tns-slide-active">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned tns-slide-active">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-7.png" style="background-image: url(&quot;img/image-7.png&quot;);"></a>
                             <!-- Info -->
@@ -186,7 +204,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned tns-slide-active">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned tns-slide-active">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-8.png" style="background-image: url(&quot;img/image-8.png&quot;);"></a>
                             <!-- Info -->
@@ -196,7 +214,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned tns-slide-active">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned tns-slide-active">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-1.png" style="background-image: url(&quot;img/image-1.png&quot;);"></a>
                             <!-- Info -->
@@ -206,7 +224,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        </div><div class="slide-item  col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-2.png" style="background-image: url(&quot;img/image-2.png&quot;);"></a>
                             <!-- Info -->
@@ -216,7 +234,7 @@
                             </div>
                             <!-- Rating -->
                             <a href="#" class="rating"><span>Rating</span> 9.0</a>
-                        </div><div class="slide-item col-12 col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
+                        </div><div class="slide-item col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                             <!-- Poster  -->
                             <a href="anime-details.html" class="image ti-play dbdone" data-src="img/image-5.png" style="background-image: url(&quot;img/image-5.png&quot;);"></a>
                             <!-- Info -->
@@ -238,24 +256,24 @@
     <div class="container">
         <div class="row align-center-y">
             <!-- Section Title -->
-            <div class="col-12 col-m-6 col-l-3">
-                <h2>Subscribe</h2>
-                <p><strong>To Your Fevorit Anime </strong> To Get The Newest Epioseds</p>
+            <div class=" col-m-6 col-l-3">
+                <h2>Suscríbete</h2>
+                <p><strong>A tu favorito Anime </strong> Para ver los últimos episodios</p>
             </div>
             <!-- Step 01 -->
-            <div class="ti-user cta-column col-12 col-m-6 col-l-3">
-                <span class="step">01 <i>step</i></span>
-                <h3>Signup <span>Create an Account</span></h3>
+            <div class="ti-user cta-column  col-m-6 col-l-3">
+                <span class="step">01 <i>paso</i></span>
+                <h3>Califica <span>tus películas preferidas</span></h3>
             </div>
             <!-- Step 02 -->
-            <div class="ti-view-module cta-column col-12 col-m-6 col-l-3">
-                <span class="step">02 <i>step</i></span>
-                <h3>Chose <span>Chose Your Anime</span></h3>
+            <div class="ti-view-module cta-column  col-m-6 col-l-3">
+                <span class="step">02 <i>paso</i></span>
+                <h3>Ver <span>Te recomendaremos lo mejor para ti</span></h3>
             </div>
             <!-- Step 03 -->
-            <div class="ti-notifications cta-column col-12 col-m-6 col-l-3">
-                <span class="step">03 <i>step</i></span>
-                <h3>Subscribe <span>Click to Subscribe</span></h3>
+            <div class="ti-notifications cta-column  col-m-6 col-l-3">
+                <span class="step">03 <i>paso</i></span>
+                <h3>Sigue <span>Votando y participando</span></h3>
             </div>
         </div>
     </div>
@@ -263,8 +281,16 @@
 <!-- // Subscribe CTA -->
 
 <div class="text-center">
-    <div class="row d-flex justify-content-center mt-200"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Launch multistep Wizard </button> </div>
+    <div class="row d-flex justify-content-center mt-200">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Launch multistep Wizard </button> </div>
 </div>
+<div class="staticSpinner" style="display:none">
+    <img src="img/loading.gif" />
+</div>
+<div class="staticWarning" style="display:none">
+    <a id="lnlRecommendations" href="#">Tienes recomendaciones para ti</a>
+</div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -280,49 +306,165 @@
                         <li><a href="#step-4">Peli 4<br /><small>Calificación 4</small></a></li>
                     </ul>
                     <div>
-                        <div id="step-1">
-                            <div class="row">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Name" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Email" required> </div>
+                        @{int count = 1;}
+                        @foreach (var item in Model.SurveyAnimes)
+                        {
+                        <div id="step-@(count.ToString())">
+                            <div class="row justify-content-center">
+                                <img src="@item.ImgUrl" alt="" class="surveyImg" />
+                                <div style="text-align:center; margin-left:10px">
+                                    <h4>¿Qué calificación le darías a este Título?</h4>
+                                    <label>@(item.AnimeName)</label>
+                                    <div class="rating" data-id="@(item.AnimeId)">
+                                        <input type="radio" name="rating@(count.ToString())" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating@(count.ToString())" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating@(count.ToString())" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating@(count.ToString())" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating@(count.ToString())" value="1" id="1"><label for="1">☆</label>
+
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Password" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Repeat password" required> </div>
-                            </div>
-                        </div>
-                        <div id="step-2">
-                            <div class="row">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Address" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="City" required> </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="State" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Country" required> </div>
-                            </div>
-                        </div>
-                        <div id="step-3" class="">
-                            <div class="row">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Card Number" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Card Holder Name" required> </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="CVV" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Mobile Number" required> </div>
-                            </div>
-                        </div>
-                        <div id="step-4" class="">
-                            <div class="row">
-                                <div class="col-md-12"> <span>Thanks For submitting your details with BBBootstrap.com. we will send you a confirmation email. We will review your details and revert back.</span> </div>
-                            </div>
-                        </div>
+                            @if (count == 4)
+                            {
+                                <div class="row justify-content-center">
+                                    <button id="btnSendResults" type="button" class="btn btn-primary"> Enviar Respuestas </button>
+                                </div>
+                            }
+                                </div>
+                            
+                            count++;
+                        }
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¡Gracias por tus respuestas!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    Estaremos buscando Animes para ti, ¡esperemos que te gusten!
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="recommendationsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¡Tenemos esto para ti!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="bd-example" style="background-color:gray">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators my-4">
+                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active justify-content-center">
+                                <img style="max-height: 400px; margin: 0 auto;" src="https://es.web.img2.acsta.net/pictures/20/07/01/13/39/0542573.jpg" class="d-block" alt="...">
+                                <div class="carousel-caption d-none d-md-block bg-dark mb-4">
+                                    <h5>First slide label</h5>
+                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item justify-content-center">
+                                <img style="max-height: 400px; margin: 0 auto;" src="https://es.web.img2.acsta.net/pictures/20/07/01/13/39/0542573.jpg" class="d-block" alt="...">
+                                <div class="carousel-caption d-none d-md-block bg-dark mb-4">
+                                    <h5>Second slide label</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item justify-content-center">
+                                <img style="max-height: 400px; margin: 0 auto;" src="https://es.web.img2.acsta.net/pictures/20/07/01/13/39/0542573.jpg" class="d-block" alt="...">
+                                <div class="carousel-caption d-none d-md-block bg-dark mb-4">
+                                    <h5>Third slide label</h5>
+                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section PopularAnimes{
+    <ul class="puplare-list">
+        @foreach (var item in Model.Top3)
+        {
+            <li class="small-media">
+                <a href="anime-details.html" class="image" data-src="@item.ImgUrl"></a>
+                <div class="info">
+                    <a href="anime-details.html"><h3>@item.AnimeName</h3></a>
+                    <h4>Rating : @item.Rating</h4>
+                    <a href="anime-stream.html" class="more-btn">Ver detalle</a>
+                </div>
+            </li>
+        }
+    </ul>
+}
+@section PopularMangas{
+    <ul class="puplare-list">
+        @foreach (var item in Model.TopMangas)
+        {
+            <li class="small-media">
+                <a href="manga-details.html" class="image" data-src="@item.ImgUrl"></a>
+                <div class="info">
+                    <a href="manga-details.html"><h3>@item.AnimeName</h3></a>
+                    <h4>Rating : 2021</h4>
+                    <a href="manga-stream.html" class="more-btn">Ver detalle</a>
+                </div>
+            </li>
+        }
+    </ul>
+}
+@section PopularMovies{
+    <ul class="puplare-list">
+        @foreach (var item in Model.TopMovies)
+        {
+            <li class="small-media">
+                <a href="anime-details.html" class="image" data-src="@item.ImgUrl"></a>
+                <div class="info">
+                    <a href="anime-details.html"><h3>@item.AnimeName</h3></a>
+                    <h4>Rating : @item.Rating</h4>
+                    <a href="anime-stream.html" class="more-btn">Ver Detalle</a>
+                </div>
+            </li>
+        }
+    </ul>
+}
+@section DayAnime{
+    <a href="#" class="banner"><img src="@Model.DayAnime" alt=""></a>
+}
 @section Scripts{
     <script>
+        
         $(document).ready(function () {
 
             $('#smartwizard').smartWizard({
@@ -334,6 +476,46 @@
 
             });
 
+            // Initialize the leaveStep event
+            $("#smartwizard").on("leaveStep", function (e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
+
+                return true;
+            });
+
+            $("#btnSendResults").click(function () {
+                $('#exampleModal').modal('hide');
+                $('#resultsModal').modal('toggle');
+
+                SaveResults();
+            });
+
+            $("#lnlRecommendations").click(function () {
+                $('#recommendationsModal').modal('toggle');
+            });
         });
+
+        function SaveResults() {
+            var rating1Id = $("input[name='rating1']").parent().data("id");
+            var rating2Id = $("input[name='rating2']").parent().data("id");
+            var rating3Id = $("input[name='rating3']").parent().data("id");
+            var rating4Id = $("input[name='rating4']").parent().data("id");
+
+            var movie1Rating = $("input[name='rating1']:checked").val();
+            var movie2Rating = $("input[name='rating2']:checked").val();
+            var movie3Rating = $("input[name='rating3']:checked").val();
+            var movie4Rating = $("input[name='rating4']:checked").val();
+
+            $(".staticSpinner").show();
+
+            setTimeout(function () {
+                $(".staticSpinner").hide();
+                $(".staticWarning").show();
+                $(".staticWarning").effect("shake", {
+                    direction: "left",
+                    times: 4,
+                    distance: 10
+                }, "slow");
+            }, 6000);
+        }
     </script>
 }
