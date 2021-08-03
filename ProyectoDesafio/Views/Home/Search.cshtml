@@ -1,0 +1,205 @@
+﻿@model ProyectoDesafio.ViewModels.MainViewModel
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_SecondLayout.cshtml";
+}
+
+<!-- Page Content -->
+<div class="container page-content">
+    <!-- Anime List -->
+    <div class="row">
+        @{
+            var pages = Model.SearchResults.Count() / 8;
+            var elements = 0;
+            var pageIndex = 1;
+        }
+        @foreach (var item in Model.SearchResults)
+        {
+            <!-- Media Block -->
+            <div class="itemResult col-m-6 col-l-3 media-block page@(pageIndex)">
+                <!-- Poster  -->
+                <a href="#" class="image ti-play" data-src="@(item.ImgUrl)"></a>
+                <!-- Info -->
+                <div class="info">
+                    <a href="anime-details.html"><h3>@(item.AnimeName)</h3></a>
+                </div>
+                <!-- Rating -->
+                <a href="#" class="rating"><span>Rating</span> @(item.Rating)</a>
+            </div>
+
+            elements += 1;
+
+            if (elements >= 8)
+            {
+                elements = 0;
+                pageIndex += 1;
+            }
+
+        }
+    </div>
+    <!-- Pagination -->
+    <ul class="pagination separate">
+        <li><a href="#" class="ti-arrow-left-c"></a></li>
+        <li><a href="#" class="ti-arrow-right-c"></a></li>
+    </ul>
+</div>
+
+<div class="media-section">
+    <div class="container">
+        <!-- Controls -->
+        <div class="area-head">
+            <h2 class="area-title">Basados en tu búsqueda</h2>
+        </div>
+        <!-- Slider Track -->
+        <div class="tns-outer media-slider-outer grid-mode" id="tns2-ow">
+            <div class="tns-controls" aria-label="Carousel Navigation" tabindex="0"><button type="button" data-controls="prev" tabindex="-1" aria-controls="tns2"></button><button type="button" data-controls="next" tabindex="-1" aria-controls="tns2"></button></div><div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span class="current">15 to 18</span>  of 6</div><div id="tns2-mw" class="tns-ovh">
+                <div class="loadingSearch" style="display:none">
+                    <img src="/img/loading.gif" style="height:100px" />
+                </div>
+                <div class="tns-inner" id="tns2-iw" style="display:none">
+                    <div class="media-carousel row  tns-slider tns-carousel tns-subpixel tns-no-calc tns-horizontal" id="tns2" style="transform: translate3d(0%, 0px, 0px);">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // Page Content -->
+
+@section PopularAnimes{
+    <ul class="puplare-list">
+        @foreach (var item in Model.Top3)
+        {
+            <li class="small-media">
+                <a href="anime-details.html" class="image" data-src="@item.ImgUrl"></a>
+                <div class="info">
+                    <a href="anime-details.html"><h3>@item.AnimeName</h3></a>
+                    <h4>Rating : @item.Rating</h4>
+                    <a href="anime-stream.html" class="more-btn">Ver detalle</a>
+                </div>
+            </li>
+        }
+    </ul>
+}
+@section PopularMangas{
+    <ul class="puplare-list">
+        @foreach (var item in Model.TopMangas)
+        {
+            <li class="small-media">
+                <a href="manga-details.html" class="image" data-src="@item.ImgUrl"></a>
+                <div class="info">
+                    <a href="manga-details.html"><h3>@item.AnimeName</h3></a>
+                    <h4>Rating : 2021</h4>
+                    <a href="manga-stream.html" class="more-btn">Ver detalle</a>
+                </div>
+            </li>
+        }
+    </ul>
+}
+@section PopularMovies{
+    <ul class="puplare-list">
+        @foreach (var item in Model.TopMovies)
+        {
+            <li class="small-media">
+                <a href="anime-details.html" class="image" data-src="@item.ImgUrl"></a>
+                <div class="info">
+                    <a href="anime-details.html"><h3>@item.AnimeName</h3></a>
+                    <h4>Rating : @item.Rating</h4>
+                    <a href="anime-stream.html" class="more-btn">Ver Detalle</a>
+                </div>
+            </li>
+        }
+    </ul>
+}
+@section DayAnime{
+    <a href="#" class="banner"><img src="@Model.DayAnime.ImgUrl" alt=""></a>
+}
+
+@section Scripts{
+    <script>
+        var currentPage = 1;
+        var totalPages = @(pages);
+
+        $(document).ready(function () {
+
+            GetRelatedSearch();
+
+            $(".itemResult").hide();
+            $(".page" + currentPage).show();
+
+            $(".ti-arrow-left-c").click(function () {
+                currentPage -= 1;
+
+                if (currentPage <= 0)
+                    currentPage = 0;
+
+                $(".itemResult").hide();
+                $(".page" + currentPage).show();
+            });
+
+            $(".ti-arrow-right-c").click(function () {
+                currentPage += 1;
+
+                if (currentPage >= totalPages) {
+                    currentPage = totalPages;
+                }
+                else {
+                    $(".itemResult").hide();
+                    $(".page" + currentPage).show();
+
+                    $(".page" + currentPage).show();
+                    $(".page" + currentPage).effect("highlight", {
+                        direction: "left",
+                        times: 4,
+                        distance: 10
+                    }, "slow");
+                }
+            });
+        });
+
+        function GetRelatedSearch() {
+            var query = getParameterByName('qr'); // "lorem"
+            $(".loadingSearch").show();
+            $("#tns2").empty();
+
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetRelatedSearch")",
+                data: { query: query},
+                dataType: "text",
+                success: function (msg) {
+                    var data = JSON.parse(msg);
+                    $(".loadingSearch").hide();
+                    $.each(data, function (index, element) {
+
+                        $(".loadingSearch").hide();
+
+                        var element = '<div class="slide-item col-m-6 col-l-3 media-block tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1"> ' +
+                            '<a href="anime-details.html" class="image ti-play dbdone" data-src="' + element.imgUrl + '" style="background-image: url(&quot;' + element.imgUrl + '&quot;);"></a> ' +
+                            '<div class="info" > ' +
+                            '<a href="anime-details.html"><h3>' + element.animeName + '</h3></a>' +
+                            '</div> ' +
+                            '<a href = "#" class="rating" > <span>Rating</span> ' + element.rating + '</a > ' +
+                            '</div >';
+
+                        $("#tns2").append(element);
+                        $("#tns2-iw").show();
+                    });
+                },
+                error: function (req, status, error) {
+                    $(".loadingSearch").hide();
+                }
+            });
+        }
+
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    </script>
+}

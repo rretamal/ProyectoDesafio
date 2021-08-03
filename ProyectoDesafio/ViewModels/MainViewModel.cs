@@ -14,6 +14,7 @@ namespace ProyectoDesafio.ViewModels
         public Anime[] TopMovies { get; set; }
         public Anime DayAnime { get; set; }
         public Anime[] SurveyAnimes { get; set; }
+        public Anime[] SearchResults { get; set; }
         public bool MustFillSurvey { get; set; }
         public int CurrentUserId { get; set; }
     }
